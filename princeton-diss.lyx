@@ -1,0 +1,872 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+% for having an appendix per chapter
+\usepackage{appendix}
+
+% teams up with bibtopic (see LyX note for explanation)
+\usepackage{chapterbib}
+
+% penalyzes hyphenation across lines (at the cost to less optimal spacing between letters and words)
+\exhyphenpenalty=900\hyphenpenalty=900
+
+% From the Mudd guide:
+% Widows/Orphans
+% Avoid "widows" (short lines ending a paragraph at the top of a page) as much as possible. A
+% heading, subheading or single line of a paragraph at the bottom of a page is called an "orphan."
+% These too should be avoided. Most computer programs now will automatically suppress widows
+% and orphans within paragraphs, but check also for headings and subheadings.
+\widowpenalty=10000
+\clubpenalty=10000
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-ams-extended-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\headheight 1in
+\headsep 1in
+\footskip 0.25in
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+For the latest version, see https://github.com/scottkosty/lyx-princeton-diss
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+The first step is: make sure you can compile this template before changing
+ it.
+ If you cannot, try to figure out that problem first.
+\end_layout
+
+\begin_layout Itemize
+You might want to add/remove some of the LyX modules.
+ For example, the guidelines say nothing about whether theorems and assumptions
+ should be numbered by type (this is currently enabled), or whether equations
+ and theorems should be numbered separately by section (this is not currently
+ enabled).
+\end_layout
+
+\begin_layout Itemize
+This template uses a separate bibliography for each chapter.
+ This is not a trivial thing to do in LaTeX, so please check that it works
+ correctly (e.g.
+ that references from a different chapter are not included in that chapter's
+ references section), or use one references section at the end.
+ In case you would like to reverse the steps to take care of this yourself
+ in a different way, the implementation I used to get separate reference
+ sections by chapter is the following:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+I went to Document > Settings > Bibliography and checked 
+\begin_inset Quotes eld
+\end_inset
+
+Sectioned bibliography
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This activates the 'bibtopic' package.
+ I did this for this (master) document and each of the chapters.
+\end_layout
+
+\begin_layout Enumerate
+I put 
+\backslash
+usepackage{chapterbib} in the preamble.
+\end_layout
+
+\begin_layout Enumerate
+I added the unnumbered 
+\begin_inset Quotes eld
+\end_inset
+
+References
+\begin_inset Quotes erd
+\end_inset
+
+ sections to the chapters, and used ERT to add the entries to the TOC.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Similar to above, this template uses a separate appendix for each chapter.
+ The implementation was done as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+I put 
+\backslash
+usepackage{appendix} in the preamble.
+\end_layout
+
+\begin_layout Enumerate
+I put 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subappendices}
+\end_layout
+
+\end_inset
+
+ in each chapter right before the appendix began.
+\end_layout
+
+\begin_layout Enumerate
+I put 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subappendices}
+\end_layout
+
+\end_inset
+
+ after the last appendix section of each chapter.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+For more information on Princeton
+\begin_inset Quotes ers
+\end_inset
+
+s requirements, see https://rbsc.princeton.edu/sites/default/files/MuddDissertatio
+nRequirements.pdf
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Please read the information there carefully.
+ There is much more you need to know than just formatting the PDF.
+ For example, you need to use a specific type of paper and binding.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{roman}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1.2cm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+ESSAYS ON TESTING
+\end_layout
+
+\begin_layout Standard
+\align center
+NON-MONOTONE RELATIONSHIPS
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset VSpace 1.2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+SCOTT KOSTYSHAK
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+does not need to be all uppercase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset VSpace 1.2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+A DISSERTATION 
+\end_layout
+
+\begin_layout Standard
+\align center
+PRESENTED TO THE FACULTY 
+\end_layout
+
+\begin_layout Standard
+\align center
+OF PRINCETON UNIVERSITY 
+\end_layout
+
+\begin_layout Standard
+\align center
+IN CANDIDACY FOR THE DEGREE 
+\end_layout
+
+\begin_layout Standard
+\align center
+OF DOCTOR OF PHILOSOPHY
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset VSpace 1.1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+RECOMMENDED FOR ACCEPTANCE 
+\end_layout
+
+\begin_layout Standard
+\align center
+BY THE DEPARTMENT OF ECONOMICS
+\end_layout
+
+\begin_layout Standard
+\align center
+ADVISOR: BO HONORÉ
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+does not need to be all uppercase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset VSpace 0.75cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+SEPTEMBER 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+the
+\backslash
+year
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Note that this is the date that the degree is *conferred* (should be one
+ of January, April, June, September, or November.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+does not need to be all uppercase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset VSpace 2.5cm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\align center
+© Copyright by Scott Kostyshak, 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+the
+\backslash
+year
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\align center
+All rights reserved.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+Alternative is all on one line:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\align center
+© Copyright by Scott Kostyshak, 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+the
+\backslash
+year
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ All rights reserved.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{Abstract}
+\end_layout
+
+\end_inset
+
+
+\size large
+Abstract
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\size large
+Be aware that the Mudd guide (page 4) 
+\begin_inset Quotes eld
+\end_inset
+
+requires that [abstracts] be no longer than 350 words
+\begin_inset Quotes erd
+\end_inset
+
+.
+ To count the words in LyX, make a selection and then go to Tools > Statistics.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+An abstract describing all three chapters, and hopefully discussing how
+ they relate to each other.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{Acknowledgments}
+\end_layout
+
+\end_inset
+
+
+\size large
+Acknowledgments:
+\end_layout
+
+\begin_layout Standard
+Thank you to...
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\emph on
+For my goldfish, Mr.
+ Flipper
+\emph default
+
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The 
+\begin_inset Quotes eld
+\end_inset
+
+List of Tables
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+List of Figures
+\begin_inset Quotes erd
+\end_inset
+
+ are not necessary.
+ I recommend using them if you have context-free titles for your tables
+ and figures.
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{List of Tables}
+\end_layout
+
+\end_inset
+
+
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+\noindent
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{List of Figures}
+\end_layout
+
+\end_inset
+
+
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+When including child .lyx documents, you may need to copy the preamble of
+ each of them into this (master) document's preamble.
+ Note that a preamble command in one document might conflict with a preamble
+ command in another, so be aware that this could be a reason why the document
+ fails to compile.
+ You might also need to add modules to this document that are used in the
+ children.
+ Finally, you might need to change the loading of math packages in this
+ document's Document Settings > Math Options.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter1.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter2.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter3.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Other things you might want to configure (that is, they are not mentioned
+ in the Mudd guide):
+\end_layout
+
+\begin_layout Itemize
+Line spacing and indentation.
+ Go to Document > Settings > Text Layout
+\end_layout
+
+\begin_layout Itemize
+hyperref.
+ This is what makes the clickable links in the PDF (e.g.
+ you can click on a section in the TOC and the PDF reader will take you
+ to that section), which some find useful and others find distracting.
+ Go to Document > Settings > PDF Properties.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
